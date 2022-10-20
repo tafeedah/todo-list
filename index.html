@@ -10,14 +10,44 @@
 </head>
 
 <body>
-    <h1>Current Date</h1>
+    <h1>TODO-LIST</h1>
+  
+       <label for=""> What's your Schedule?</label>
+        <textarea name="todo" id="todo" cols="30" rows="10"></textarea>
+  
+    <button onclick="done()">Add to list</button>
     <div id="p1"></div>
     <script>
+        var todo = document.getElementById("todo")
+        var index = 0
+        var list = []
         var date = new Date();
         var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
         var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         var date_time = current_date + " " + current_time;
-        document.getElementById("p1").innerHTML = date_time;
+        
+        function done() {
+            list.push({
+                todo: todo.value,
+                date_generated: date,
+
+            })
+            preview();
+            console.log(list)
+
+            todo.value = ""
+           
+        }
+        function preview() {
+            var items = document.getElementById("items")
+            for (count = 1; count <= list.length; count++) {
+                items = items += "<input type='text' value='" + list[count - 1].todo + "'/>"
+                items = items += "<input type='text' value='" + date_time + "'/>"   
+            }
+            var array = document.getElementById("p1")
+            array.innerHTML = (items)
+        }
+        //document.getElementById("p1").innerHTML = date_time;
     </script>
 
 </body>
