@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TODO-LIST | Khalil Jamil Ahmad</title>
+    <style>
+        table, td{
+            border:1px solid green;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,11 +22,17 @@
         <textarea name="todo" id="todo" cols="30" rows="10"></textarea>
   
     <button onclick="done()">Add to list</button>
-    <div id="p1"></div>
+    <div>
+        <table id="p1">
+            <thead><td>My Schedule</td><td>Date and Time</td></thead>
+            <tbody></tbody>
+        </table>
+    </div>
     <script>
         var todo = document.getElementById("todo")
         var index = 0
         var list = []
+        
         var date = new Date();
         var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
         var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -39,16 +51,17 @@
            
         }
         function preview() {
-            var items = document.getElementById("items")
+            var items = document.querySelector("#p1 tbody")
             for (count = 1; count <= list.length; count++) {
-                items = items += "<input type='text' value='" + list[count - 1].todo + "'/>"
-                items = items += "<input type='text' value='" + date_time + "'/>"   
+                items = items += "<tr><td>" + list[count - 1].todo + "</td><td>" + date_time + "</td></tr>"
+      
             }
             var array = document.getElementById("p1")
             array.innerHTML = (items)
         }
         //document.getElementById("p1").innerHTML = date_time;
-    </script>
+ 
+ </script>
 
 </body>
 
