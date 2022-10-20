@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js"></script>
+
     <title>TODO-LIST | Khalil Jamil Ahmad</title>
 </head>
+
 <body>
     <h1>Current Date</h1>
     <div id="p1"></div>
-    
-    
+    <script>
+        var date = new Date();
+        var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+        var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        var date_time = current_date + " " + current_time;
+        document.getElementById("p1").innerHTML = date_time;
+    </script>
+
 </body>
+
 </html>
